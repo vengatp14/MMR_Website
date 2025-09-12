@@ -130,4 +130,66 @@
     selector: '.glightbox'
   });
 
+
+
+
+
+  (function () {
+  const track = document.getElementById("logoTrack");
+  const carousel = document.getElementById("logoCarousel");
+
+  // Duplicate logos for infinite loop
+  track.innerHTML += track.innerHTML;
+
+  let position = 0;
+  let speed = 0.8; // auto scroll speed
+  let isDragging = false;
+  let startX = 0;
+  let dragStartPos = 0;
+
+  function animate() {
+    if (!isDragging) {
+      position -= speed;
+    }
+
+    const totalWidth = track.scrollWidth / 2;
+
+    // Modulus wrap for perfect infinite loop
+    position = ((position % totalWidth) + totalWidth) % totalWidth;
+
+    track.style.transform = `translateX(${-position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  function startDrag(e) {
+    isDragging = true;
+    startX = e.pageX || e.touches[0].pageX;
+    dragStartPos = position;
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+    const currentX = e.pageX || e.touches[0].pageX;
+    const delta = currentX - startX;
+    position = dragStartPos - delta; // move opposite to drag
+  }
+
+  function endDrag() {
+    isDragging = false;
+  }
+
+  // Mouse events
+  carousel.addEventListener("mousedown", startDrag);
+  carousel.addEventListener("mousemove", drag);
+  carousel.addEventListener("mouseup", endDrag);
+  carousel.addEventListener("mouseleave", endDrag);
+
+  // Touch events
+  carousel.addEventListener("touchstart", startDrag, { passive: true });
+  carousel.addEventListener("touchmove", drag, { passive: true });
+  carousel.addEventListener("touchend", endDrag);
+
+  animate();
+})();
+
 })();

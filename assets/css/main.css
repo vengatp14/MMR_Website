@@ -4973,3 +4973,101 @@ section,
     bottom: 85px;
     z-index: 99999;
     background-color: #002450;}
+
+
+   .logo-carousel {
+  overflow-x: auto;           /* allow scrollLeft manipulation */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scroll-behavior: smooth;
+  touch-action: pan-y;        /* allow vertical page scroll, but let horizontal drag work */
+  padding: 30px 0;
+}
+
+/* Hide scrollbar - cross-browser */
+.logo-carousel::-webkit-scrollbar { display: none; }
+.logo-carousel { -ms-overflow-style: none; scrollbar-width: none; }
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.logo-item img {
+  max-width: 140px;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: transform 0.35s ease, filter 0.35s ease;
+  will-change: transform;
+  border-radius: 20px;
+  box-shadow: 1px 1px 11px 2px rgba(92,92,92,0.75);
+-webkit-box-shadow: 1px 1px 11px 2px rgba(92,92,92,0.75);
+-moz-box-shadow: 1px 1px 11px 2px rgba(92,92,92,0.75);
+}
+
+/* Hover/focus animation */
+.logo-item:hover img,
+.logo-item:focus-within img {
+  filter: grayscale(0%);
+  transform: scale(1.12) rotate(-2deg);
+  
+}
+
+/* Cursor change while dragging */
+.logo-carousel.dragging { cursor: grabbing; }
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .logo-item { width: 120px; }
+  .logo-item img { max-width: 100px; }
+}
+
+   .autocomplete-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-top: none;
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    .autocomplete-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .autocomplete-item:hover {
+      background: #f8f9fa;
+    }
+    .autocomplete-item img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 6px;
+    }
+
+    .carousel-control-next-icon {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Eo_circle_blue_arrow-right.svg/2048px-Eo_circle_blue_arrow-right.svg.png);
+}
+
+.carousel-control-prev-icon {
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Eo_circle_blue_arrow-left.svg/768px-Eo_circle_blue_arrow-left.svg.png);
+}
