@@ -173,7 +173,11 @@
           <h3>Send Us a Message</h3>
           <p>Have a question or need a quote? Fill out the form below, and our team will respond quickly to your request.</p>
 
-          <form action="forms/contact.php" method="post" class="php-email-form">
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
+    <input type="hidden" name="access_key" value="654aab5d-5b7b-4d16-af3f-dd50bc728c9e" />
+    <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+    <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+    <input type="checkbox" name="botcheck" id="" style="display: none;" />
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required="">
               <label for="nameInput">Full Name</label>
@@ -193,12 +197,12 @@
               <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="Your Message" style="height: 150px" required=""></textarea>
               <label for="messageInput">Your Message</label>
             </div>
-
+<!-- 
             <div class="my-3">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
+            </div> -->
 
             <div class="d-grid">
               <button type="submit" class="btn-submit">Send Message <i class="bi bi-send-fill ms-2"></i></button>

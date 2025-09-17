@@ -866,7 +866,11 @@
               <p>Start your next construction project with MMR today</p>
             </div>
 
-            <form action="forms/get-a-quote.php" method="post" class="php-email-form">
+          <form action="https://api.web3forms.com/submit" method="POST" id="form">
+    <input type="hidden" name="access_key" value="654aab5d-5b7b-4d16-af3f-dd50bc728c9e" />
+    <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+    <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+    <input type="checkbox" name="botcheck" id="" style="display: none;" />
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -890,10 +894,7 @@
                 </div>
               </div>
 
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your request has been sent. We will contact you shortly!</div>
-
+           
               <div class="form-actions">
                 <button type="submit" class="btn btn-primary">
                   <i class="bi bi-send"></i>
